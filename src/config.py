@@ -1,7 +1,7 @@
 import os
 
-# Base directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Base directory - use simpler path for container environment
+BASE_DIR = os.environ.get('BASE_DIR', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Model configuration
 MODEL_CONFIG = {
@@ -40,3 +40,4 @@ def ensure_directories_exist():
     
     for directory in directories:
         os.makedirs(directory, exist_ok=True)
+        print(f"Ensuring directory exists: {directory}")

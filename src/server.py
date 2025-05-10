@@ -25,7 +25,8 @@ def create_app():
         return jsonify({
             'status': 'Server is running',
             'model_loaded': model is not None,
-            'model_type': 'multi-digit' if is_multi_digit else 'single-digit'
+            'model_type': 'multi-digit' if is_multi_digit else 'single-digit',
+            "message": "Hello from Hugging Face Flask app!"
         })
     
     @app.route('/predict', methods=['POST'])
